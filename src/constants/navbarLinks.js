@@ -9,7 +9,7 @@ export const navbarLinks = [
     },
     {
         title: "Github",
-        link: "https://github.com/",
+        link: "https://github.com/roshanchatei/query-forge",
         target: "_blank"
     },
     {
