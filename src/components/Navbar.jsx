@@ -13,7 +13,7 @@ const Navbar = () =>  {
                 elevation={0}
                 position="fixed"
                 sx={{
-                    background: '#ececec',
+                    background: '#d5d5d5',
                 }}
             >
                 <Box py={1.3} px={2} display={'flex'} alignItems={'center'} justifyContent={'space-between'} >
