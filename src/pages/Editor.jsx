@@ -1,8 +1,8 @@
 import { useState } from 'react';
 import {Grid, Hidden, Box } from "@mui/material";
-import AvailableQueries from "./AvailableQueries";
-import QueryEditor from "./QueryEditor";
-import QueryOutput from "./QueryOutput";
+import AvailableQueries from "../page-components/editor/AvailableQueries";
+import QueryEditor from "../page-components/editor/QueryEditor";
+import QueryOutput from "../page-components/editor/QueryOutput";
 const Editor = () =>  {
 
     const [executionTime, setExecutionTime] = useState(null);

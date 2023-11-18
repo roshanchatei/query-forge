@@ -30,16 +30,16 @@ const QueryEditor = ({selectedQueryId, setQueryOutput}) =>  {
                             </IconButton>
                         </Tooltip>
                         <Box ml={1} />
-                        <CSVLink
-                            data={jsonData}
-                            filename={"dataOutput.csv"}
-                        >
-                            <Tooltip title="Export" arrow>
-                                <IconButton>
-                                    <DownloadOutlinedIcon color={"primary"} />
-                                </IconButton>
-                            </Tooltip>
-                        </CSVLink>
+                        {/*<CSVLink*/}
+                        {/*    data={jsonData}*/}
+                        {/*    filename={"dataOutput.csv"}*/}
+                        {/*>*/}
+                        {/*    <Tooltip title="Export" arrow>*/}
+                        {/*        <IconButton>*/}
+                        {/*            <DownloadOutlinedIcon color={"primary"} />*/}
+                        {/*        </IconButton>*/}
+                        {/*    </Tooltip>*/}
+                        {/*</CSVLink>*/}
 
                     </Box>
                 </Box>

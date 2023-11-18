@@ -2,9 +2,10 @@ import React, { Suspense, lazy } from "react";
 import { Route, Routes, Link } from 'react-router-dom';
 import Navbar from "./components/Navbar";
 import {Box} from "@mui/material";
+import Loader from "./components/Loader";
 
-const Home = lazy(() => import("./page-components/home/Home"));
-const Editor = lazy(() => import("./page-components/editor/Editor"));
+const Home = lazy(() => import("./pages/Home"));
+const Editor = lazy(() => import("./pages/Editor"));
 
 
 function App() {
@@ -14,7 +15,7 @@ function App() {
               <Navbar />
               <Suspense
                   fallback={
-                      <div>Loading ... </div>
+                      <Loader />
                   }
               >
                   <Routes>
