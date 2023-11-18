@@ -5,10 +5,18 @@ import DownloadOutlinedIcon from '@mui/icons-material/DownloadOutlined';
 import PlayCircleOutlinedIcon from '@mui/icons-material/PlayCircleOutlined';
 import InfoOutlinedIcon from '@mui/icons-material/InfoOutlined';
 import {queryList} from "../../constants/queryList";
+import { useSnackbar } from "notistack";
 import { CSVLink } from "react-csv";
 import {jsonData} from "../../utils/dataGenerator";
 
 const QueryEditor = ({selectedQueryId, setQueryOutput}) =>  {
+
+    const { enqueueSnackbar } = useSnackbar();
+    const executeQuery = () => {
+        enqueueSnackbar("Query executed successfully", {
+            variant: "success",
+        });
+    }
 
     return (
         <>
@@ -25,7 +33,7 @@ const QueryEditor = ({selectedQueryId, setQueryOutput}) =>  {
                     </Box>
                     <Box display={'flex'} alignItems={'center'}>
                         <Tooltip title="Run" arrow>
-                            <IconButton>
+                            <IconButton onClick={executeQuery}>
                                 <PlayCircleOutlinedIcon color={"primary"} />
                             </IconButton>
                         </Tooltip>
