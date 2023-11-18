@@ -17,7 +17,7 @@ const QueryEditor = ({selectedQueryId, setQueryOutput}) =>  {
                             Editor
                         </Box>
                         <Tooltip title="Select any query from the Available Queries and click on Run" placement="right" arrow>
-                            <InfoOutlinedIcon fontSize={"small"}/>
+                            <InfoOutlinedIcon fontSize={"small"} sx={{color: "rgba(0, 0, 0, 0.6)"}}/>
                         </Tooltip>
                     </Box>
                     <Box display={'flex'} alignItems={'center'}>
