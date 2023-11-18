@@ -1,0 +1,23 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  padding: 0;
+  margin: 0;
+}
+
+/*:root {*/
+/*  --primary: #f05;*/
+/*  --accent: #525fe1;*/
+/*  --light: #e7ecef;*/
+/*  --light-translucent: #e7ecef3a;*/
+/*  --dark: #030119;*/
+/*  --dark-translucent: #030119b1;*/
+/*  --grad: linear-gradient(270deg, #525ee0 35%, #18b0ec 100%);*/
+/*  --accent2: hsl(197, 85%, 51%);*/
+/*  --atlan: #2026d2;*/
+/*  --text: #3e4c59;*/
+/*  --white: #fff;*/
+/*  --table-border: #dddddd;*/
+/*}*/
