@@ -25,10 +25,9 @@ const Navbar = () =>  {
                                     <Box
                                         ml={3} color={"#2026d2"}
                                         fontSize={'16px'} fontWeight={500}
-                                        fontFamily={"Raleway,sans-serif"}
                                         sx={{
                                             "&:hover": {
-                                                color: "#6c72ff",
+                                                color: "#5e65ff",
                                             },
                                         }}
                                     >
