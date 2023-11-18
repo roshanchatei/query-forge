@@ -1,16 +1,17 @@
-import {Box, IconButton, Tooltip} from "@mui/material";
+import {Box, IconButton, Tooltip, Select, MenuItem, FormControl, TextField} from "@mui/material";
 import TableRowsOutlinedIcon from '@mui/icons-material/TableRowsOutlined';
 import NavigateBeforeIcon from '@mui/icons-material/NavigateBefore';
 import NavigateNextIcon from '@mui/icons-material/NavigateNext';
 import OutputTable from "./OutputTable";
 import {useState, useRef} from "react";
 import {jsonData} from "../../utils/dataGenerator";
+import {queryList} from "../../constants/queryList";
 
 const QueryOutput = ({queryOutput}) =>  {
 
     const tableRef = useRef(null);
     const [currentPage, setCurrentPage] = useState(1);
-    const [pageSize, setPageSize] = useState(50);
+    const [pageSize, setPageSize] = useState(10);
 
     const scrollToTop = () => {
         if(pageSize === 10)
@@ -58,6 +59,35 @@ const QueryOutput = ({queryOutput}) =>  {
                     {
                         queryOutput.length === 0 && (
                             <Box display={'flex'} alignItems={'center'}>
+                                <Box>
+                                    Table Size:
+                                </Box>
+                                <TextField
+                                    size={"small"}
+                                    color={"primary"}
+                                    value={pageSize}
+                                    onChange={handlePageSizeChange}
+                                    variant="standard"
+                                    InputProps={{
+                                        disableUnderline: true,
+                                        style: {
+                                            color: "#2026d2"
+                                        },
+                                    }}
+                                    sx={{
+                                        padding: "2px 5px",
+                                        borderRadius: "5px",
+                                        backgroundColor: "transparent",
+                                        mt: 0.5,
+                                        mr: 4
+                                    }}
+                                    select
+                                >
+                                    <MenuItem value={10}>10</MenuItem>
+                                    <MenuItem value={20}>20</MenuItem>
+                                    <MenuItem value={50}>50</MenuItem>
+                                </TextField>
+
                                 <Tooltip title="Previous" arrow>
                                     <IconButton onClick={handlePrevPage} disabled={currentPage === 1}>
                                         <NavigateBeforeIcon color={"primary"} />
