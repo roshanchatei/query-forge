@@ -82,6 +82,7 @@ const QueryOutput = ({queryOutput}) =>  {
                                         mr: 4
                                     }}
                                     select
+                                    aria-label={"table size"}
                                 >
                                     <MenuItem value={10}>10</MenuItem>
                                     <MenuItem value={20}>20</MenuItem>

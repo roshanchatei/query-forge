@@ -3,11 +3,15 @@ const OutputTable = ({tableRef, result, pageSize, currentPage}) =>  {
 
     const getTableRowsFromData = (arr) => {
         const keys = Object.keys(arr[0]);
-        return arr.map((item, index) => {
+        return arr.map((item, rowIndex) => {
             return (
-                <tr key={index}>
-                    {keys.map((key) => {
-                        return <td key={key + index}>{item[key]}</td>;
+                <tr key={rowIndex}>
+                    {keys.map((key, colIndex) => {
+                        return (
+                            <td key={key + rowIndex} headers={`col-${colIndex}`}>
+                                {item[key]}
+                            </td>
+                        );
                     })}
                 </tr>
             );
@@ -17,9 +21,13 @@ const OutputTable = ({tableRef, result, pageSize, currentPage}) =>  {
     const getTableHeadFromData = (arr) => {
         const keys = Object.keys(arr[0]);
         return (
-            <tr style={{backgroundColor: "#2026d2"}}>
-                {keys.map((key) => {
-                    return <td key={key}>{key}</td>;
+            <tr style={{ backgroundColor: "#2026d2" }}>
+                {keys.map((key, colIndex) => {
+                    return (
+                        <th key={key} id={`col-${colIndex}`}>
+                            {key}
+                        </th>
+                    );
                 })}
             </tr>
         );

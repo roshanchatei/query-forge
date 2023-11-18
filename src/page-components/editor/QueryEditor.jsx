@@ -5,6 +5,9 @@ import DownloadOutlinedIcon from '@mui/icons-material/DownloadOutlined';
 import PlayCircleOutlinedIcon from '@mui/icons-material/PlayCircleOutlined';
 import InfoOutlinedIcon from '@mui/icons-material/InfoOutlined';
 import {queryList} from "../../constants/queryList";
+import { CSVLink } from "react-csv";
+import {jsonData} from "../../utils/dataGenerator";
+
 const QueryEditor = ({selectedQueryId, setQueryOutput}) =>  {
 
     return (
@@ -27,11 +30,17 @@ const QueryEditor = ({selectedQueryId, setQueryOutput}) =>  {
                             </IconButton>
                         </Tooltip>
                         <Box ml={1} />
-                        <Tooltip title="Export" arrow>
-                            <IconButton>
-                                <DownloadOutlinedIcon color={"primary"} />
-                            </IconButton>
-                        </Tooltip>
+                        <CSVLink
+                            data={jsonData}
+                            filename={"dataOutput.csv"}
+                        >
+                            <Tooltip title="Export" arrow>
+                                <IconButton>
+                                    <DownloadOutlinedIcon color={"primary"} />
+                                </IconButton>
+                            </Tooltip>
+                        </CSVLink>
+
                     </Box>
                 </Box>
                 <Box px={1.5} py={1.5} height={"10vh"} bgcolor={"#f9f9f6"}>
@@ -52,6 +61,7 @@ const QueryEditor = ({selectedQueryId, setQueryOutput}) =>  {
                             padding: "7px 15px",
                             borderRadius: "5px"
                         }}
+                        aria-label={"query input"}
                     />
                 </Box>
             </Box>

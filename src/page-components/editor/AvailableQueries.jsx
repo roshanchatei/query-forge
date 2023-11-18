@@ -19,6 +19,7 @@ const AvailableQueries = ({selectedQueryId, setSelectedQueryId}) =>  {
                         {
                             queryList.map((each, index) => (
                                 <Box
+                                    key={index}
                                     width={"100%"} mb={2}
                                     bgcolor={"#FFF"} py={0.5} pl={1}
                                     borderRadius={"3px"} color={each.u_id === selectedQueryId ? "#2026d2" : ""}
