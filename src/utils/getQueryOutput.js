@@ -35,6 +35,18 @@ export const getQueryOutput = (data, query) => {
         });
     }
 
+    if (query.orderBy) {
+        const orderDirection = query.orderDirection || 'asc';
+        result.sort((a, b) => {
+            const orderFactor = orderDirection === 'desc' ? -1 : 1;
+            return (a[query.orderBy] > b[query.orderBy] ? 1 : -1) * orderFactor;
+        });
+    }
+
+    if (query.limit) {
+        result = result.slice(0, query.limit);
+    }
+
 
 
     return result;
