@@ -1,11 +1,14 @@
 import {useState} from 'react';
-import {Box, Tooltip, IconButton, Dialog, Hidden} from "@mui/material";
-import BookmarksIcon from '@mui/icons-material/Bookmarks';
 import TableSize from "./TableSize";
 import AvailableQueries from "./AvailableQueries";
+
+import {Box, Tooltip, IconButton, Dialog, Hidden} from "@mui/material";
+import BookmarksIcon from '@mui/icons-material/Bookmarks';
 import CloseIcon from '@mui/icons-material/Close';
+
 const MobileAvailableQueries = ({pageSize, setPageSize, setCurrentPage, selectedQueryId, setSelectedQueryId, setIsQueryExecuted}) =>  {
 
+    //states to handle dialog opening
     const [open, setOpen] = useState(false);
     const handleClickOpen = () => {
         setOpen(true);

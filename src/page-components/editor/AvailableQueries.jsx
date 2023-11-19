@@ -1,5 +1,6 @@
 import {Box} from "@mui/material";
 import IntegrationInstructionsOutlinedIcon from '@mui/icons-material/IntegrationInstructionsOutlined';
+
 import {queryList} from "../../constants/queryList";
 const AvailableQueries = ({p, br, height, setOpen, selectedQueryId, setSelectedQueryId, setIsQueryExecuted}) =>  {
 

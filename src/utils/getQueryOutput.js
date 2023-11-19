@@ -1,6 +1,8 @@
+// Function to process and filter data based on a given query object
 export const getQueryOutput = (data, query) => {
     let result = [...data];
 
+    // Handle the SELECT clause
     if (query.select) {
         result = result.map(entry => {
             const selectedFields = {};
@@ -11,6 +13,7 @@ export const getQueryOutput = (data, query) => {
         });
     }
 
+    // Handle the WHERE clause
     if (query.where) {
         result = result.filter(entry => {
             return Object.keys(query.where).every(field => {
@@ -39,6 +42,7 @@ export const getQueryOutput = (data, query) => {
         });
     }
 
+    // Handle the ORDER BY clause
     if (query.orderBy) {
         const orderDirection = query.orderDirection || 'asc';
         result.sort((a, b) => {
@@ -47,10 +51,12 @@ export const getQueryOutput = (data, query) => {
         });
     }
 
+    // Handle the LIMIT clause
     if (query.limit) {
         result = result.slice(0, query.limit);
     }
 
+    // Handle the GROUP BY & AGGREGATE clause
     if (query.groupBy) {
         const groupedData = {};
         result.forEach(entry => {

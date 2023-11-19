@@ -13,6 +13,8 @@ body {
   overflow-y: auto;
 }
 
+/*Table Styles*/
+
 .table-container {
   max-height: 100%;
   overflow-y: auto;

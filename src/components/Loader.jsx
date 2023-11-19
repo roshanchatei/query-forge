@@ -1,4 +1,4 @@
-//Fallback Loader
+// Fallback Loader component
 
 import {Box, CircularProgress  } from "@mui/material";
 const Loader = () =>  {

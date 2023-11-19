@@ -4,9 +4,9 @@ import Navbar from "./components/Navbar";
 import {Box} from "@mui/material";
 import Loader from "./components/Loader";
 
+// Lazy-loaded components
 const Home = lazy(() => import("./pages/Home"));
 const Editor = lazy(() => import("./pages/Editor"));
-
 
 function App() {
   return (
@@ -24,8 +24,6 @@ function App() {
                   </Routes>
               </Suspense>
           </Box>
-
-
       </>
   );
 }

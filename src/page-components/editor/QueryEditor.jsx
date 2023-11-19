@@ -1,18 +1,20 @@
-import {Box, IconButton, Tooltip } from "@mui/material";
-import { TextField } from "@mui/material";
-import TerminalOutlinedIcon from '@mui/icons-material/TerminalOutlined';
-import DownloadOutlinedIcon from '@mui/icons-material/DownloadOutlined';
-import PlayCircleOutlinedIcon from '@mui/icons-material/PlayCircleOutlined';
-import InfoOutlinedIcon from '@mui/icons-material/InfoOutlined';
 import {queryList} from "../../constants/queryList";
 import { useSnackbar } from "notistack";
 import { CSVLink } from "react-csv";
 import {jsonData} from "../../utils/dataGenerator";
 import {getQueryOutput} from "../../utils/getQueryOutput";
 
+import {Box, IconButton, Tooltip, TextField } from "@mui/material";
+import TerminalOutlinedIcon from '@mui/icons-material/TerminalOutlined';
+import DownloadOutlinedIcon from '@mui/icons-material/DownloadOutlined';
+import PlayCircleOutlinedIcon from '@mui/icons-material/PlayCircleOutlined';
+import InfoOutlinedIcon from '@mui/icons-material/InfoOutlined';
+
 const QueryEditor = ({queryOutput, selectedQueryId, setQueryOutput, isQueryExecuted, setIsQueryExecuted, setCurrentPage}) =>  {
 
     const { enqueueSnackbar } = useSnackbar();
+
+    //selected query execution
     const executeQuery = () => {
         setCurrentPage(1)
         const startTime = performance.now();
@@ -21,6 +23,7 @@ const QueryEditor = ({queryOutput, selectedQueryId, setQueryOutput, isQueryExecu
         const endTime = performance.now();
         const timeTaken = (endTime - startTime).toFixed(2);
 
+        //showing execution time to user
         enqueueSnackbar(`Query executed in ${timeTaken} ms`, {
             variant: "success",
         });

@@ -1,3 +1,5 @@
+// Array containing objects representing SQL queries & parsedQueries
+
 export const queryList = [
     {
         u_id: 0,

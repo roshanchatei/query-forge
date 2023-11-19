@@ -1,15 +1,16 @@
+import {useRef} from "react";
+import OutputTable from "./OutputTable";
+import TableSize from "./TableSize";
+
 import {Box, IconButton, Hidden} from "@mui/material";
 import TableRowsOutlinedIcon from '@mui/icons-material/TableRowsOutlined';
 import NavigateBeforeIcon from '@mui/icons-material/NavigateBefore';
 import NavigateNextIcon from '@mui/icons-material/NavigateNext';
-import OutputTable from "./OutputTable";
-import {useRef} from "react";
-import TableSize from "./TableSize";
 
 const QueryOutput = ({pageSize, setPageSize, queryOutput, currentPage, setCurrentPage}) =>  {
 
+    //scroll to top on change in current page
     const tableRef = useRef(null);
-
     const scrollToTop = () => {
         if(pageSize === 10)
             return;
@@ -22,16 +23,15 @@ const QueryOutput = ({pageSize, setPageSize, queryOutput, currentPage, setCurren
         }
     };
 
+    //handle pagination(page change)
     const handlePrevPage = () => {
         setCurrentPage((prevPage) => Math.max(prevPage - 1, 1));
         scrollToTop()
     };
-
     const handleNextPage = () => {
         setCurrentPage((prevPage) => Math.min(prevPage + 1, totalPages));
         scrollToTop()
     };
-
     const totalItems = queryOutput.length;
     const totalPages = Math.ceil(totalItems / pageSize);
 
