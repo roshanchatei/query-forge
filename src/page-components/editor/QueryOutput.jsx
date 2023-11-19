@@ -1,4 +1,4 @@
-import {useRef} from "react";
+import {useRef, useCallback} from "react";
 import OutputTable from "./OutputTable";
 import TableSize from "./TableSize";
 
@@ -24,16 +24,17 @@ const QueryOutput = ({pageSize, setPageSize, queryOutput, currentPage, setCurren
     };
 
     //handle pagination(page change)
-    const handlePrevPage = () => {
-        setCurrentPage((prevPage) => Math.max(prevPage - 1, 1));
-        scrollToTop()
-    };
-    const handleNextPage = () => {
-        setCurrentPage((prevPage) => Math.min(prevPage + 1, totalPages));
-        scrollToTop()
-    };
     const totalItems = queryOutput.length;
     const totalPages = Math.ceil(totalItems / pageSize);
+    const handlePrevPage = useCallback(() => {
+        setCurrentPage((prevPage) => Math.max(prevPage - 1, 1));
+        scrollToTop();
+    }, [setCurrentPage]);
+
+    const handleNextPage = useCallback(() => {
+        setCurrentPage((prevPage) => Math.min(prevPage + 1, totalPages));
+        scrollToTop();
+    }, [setCurrentPage, totalPages]);
 
 
     return (

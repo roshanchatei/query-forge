@@ -1,12 +1,16 @@
+import { useCallback } from 'react';
 import {Box, MenuItem, TextField} from "@mui/material";
 
 const TableSize = ({pageSize, setPageSize, setCurrentPage}) =>  {
 
-    const handlePageSizeChange = (e) => {
-        const newSize = parseInt(e.target.value, 10);
-        setPageSize(newSize);
-        setCurrentPage(1);
-    };
+    const handlePageSizeChange = useCallback(
+        (e) => {
+            const newSize = parseInt(e.target.value, 10);
+            setPageSize(newSize);
+            setCurrentPage(1);
+        },
+        [setPageSize, setCurrentPage]
+    );
 
     return (
         <>

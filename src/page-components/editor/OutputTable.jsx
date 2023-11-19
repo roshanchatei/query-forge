@@ -1,3 +1,5 @@
+import { useMemo } from 'react';
+
 const OutputTable = ({tableRef, result, pageSize, currentPage}) =>  {
 
     //get table rows from the executed query
@@ -37,7 +39,11 @@ const OutputTable = ({tableRef, result, pageSize, currentPage}) =>  {
     //pagination handling
     const startIndex = (currentPage - 1) * pageSize;
     const endIndex = startIndex + pageSize;
-    const visibleData = result.slice(startIndex, endIndex);
+    const visibleData = useMemo(() => result.slice(startIndex, endIndex), [
+        result,
+        startIndex,
+        endIndex,
+    ]);
 
     return (
         <>
