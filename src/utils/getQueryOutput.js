@@ -47,7 +47,37 @@ export const getQueryOutput = (data, query) => {
         result = result.slice(0, query.limit);
     }
 
+    if (query.groupBy) {
+        const groupedData = {};
+        result.forEach(entry => {
+            const key = entry[query.groupBy];
+            if (!groupedData[key]) {
+                groupedData[key] = [];
+            }
+            groupedData[key].push(entry);
+        });
 
+        result = Object.entries(groupedData).map(([key, group]) => {
+            const aggregatedValues = {};
+            if (query.aggregate) {
+                for (const field in query.aggregate) {
+                    const operation = query.aggregate[field];
+                    switch (operation) {
+                        case 'COUNT':
+                            aggregatedValues[query.aggregate.alias || `count_${field}`] = group.length;
+                            break;
+                        case 'SUM':
+                            aggregatedValues[query.aggregate.alias || `sum_${field}`] = group.reduce((acc, entry) => acc + entry[field], 0);
+                            break;
+                        // more operations can be added
+                        default:
+                            break;
+                    }
+                }
+            }
+            return { [query.groupBy]: key, ...aggregatedValues };
+        });
+    }
 
     return result;
 };

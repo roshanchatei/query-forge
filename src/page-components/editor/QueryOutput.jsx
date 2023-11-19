@@ -4,13 +4,10 @@ import NavigateBeforeIcon from '@mui/icons-material/NavigateBefore';
 import NavigateNextIcon from '@mui/icons-material/NavigateNext';
 import OutputTable from "./OutputTable";
 import {useState, useRef} from "react";
-import {jsonData} from "../../utils/dataGenerator";
-import {queryList} from "../../constants/queryList";
 
-const QueryOutput = ({queryOutput}) =>  {
+const QueryOutput = ({queryOutput, currentPage, setCurrentPage}) =>  {
 
     const tableRef = useRef(null);
-    const [currentPage, setCurrentPage] = useState(1);
     const [pageSize, setPageSize] = useState(10);
 
     const scrollToTop = () => {
@@ -28,7 +25,7 @@ const QueryOutput = ({queryOutput}) =>  {
     const handlePageSizeChange = (e) => {
         const newSize = parseInt(e.target.value, 10);
         setPageSize(newSize);
-        setCurrentPage(1); // Reset to the first page when page size changes
+        setCurrentPage(1);
     };
 
     const handlePrevPage = () => {
@@ -41,9 +38,8 @@ const QueryOutput = ({queryOutput}) =>  {
         scrollToTop()
     };
 
-    const totalItems = jsonData.length;
+    const totalItems = queryOutput.length;
     const totalPages = Math.ceil(totalItems / pageSize);
-
 
 
     return (
@@ -57,7 +53,7 @@ const QueryOutput = ({queryOutput}) =>  {
                         </Box>
                     </Box>
                     {
-                        queryOutput.length === 0 && (
+                        queryOutput.length > 0 && (
                             <Box display={'flex'} alignItems={'center'}>
                                 <Box>
                                     Table Size:
@@ -89,25 +85,21 @@ const QueryOutput = ({queryOutput}) =>  {
                                     <MenuItem value={50}>50</MenuItem>
                                 </TextField>
 
-                                <Tooltip title="Previous" arrow>
-                                    <IconButton onClick={handlePrevPage} disabled={currentPage === 1}>
-                                        <NavigateBeforeIcon color={"primary"} />
-                                    </IconButton>
-                                </Tooltip>
+                                <IconButton onClick={handlePrevPage} disabled={currentPage === 1}>
+                                    <NavigateBeforeIcon color={currentPage === 1 ? "disabled" : "primary"} />
+                                </IconButton>
                                 <Box width={"50px"} textAlign={"center"}>
                                     {currentPage}/{totalPages}
                                 </Box>
-                                <Tooltip title="Next" arrow>
-                                    <IconButton onClick={handleNextPage} disabled={currentPage === totalPages}>
-                                        <NavigateNextIcon color={"primary"} />
-                                    </IconButton>
-                                </Tooltip>
+                                <IconButton onClick={handleNextPage} disabled={currentPage === totalPages}>
+                                    <NavigateNextIcon color={currentPage === totalPages ? "disabled" : "primary"} />
+                                </IconButton>
                             </Box>
                         )
                     }
                 </Box>
                 <Box px={2.5} pb={1.5} pt={2.5} height={"calc(90vh - 190px)"} bgcolor={"#f9f9f6"}>
-                    <OutputTable tableRef={tableRef} result={jsonData} currentPage={currentPage} pageSize={pageSize}/>
+                    <OutputTable tableRef={tableRef} result={queryOutput} currentPage={currentPage} pageSize={pageSize}/>
                 </Box>
             </Box>
         </>

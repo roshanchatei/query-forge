@@ -8,14 +8,23 @@ import {queryList} from "../../constants/queryList";
 import { useSnackbar } from "notistack";
 import { CSVLink } from "react-csv";
 import {jsonData} from "../../utils/dataGenerator";
+import {getQueryOutput} from "../../utils/getQueryOutput";
 
-const QueryEditor = ({selectedQueryId, setQueryOutput}) =>  {
+const QueryEditor = ({queryOutput, selectedQueryId, setQueryOutput, isQueryExecuted, setIsQueryExecuted, setCurrentPage}) =>  {
 
     const { enqueueSnackbar } = useSnackbar();
     const executeQuery = () => {
-        enqueueSnackbar("Query executed successfully", {
+        setCurrentPage(1)
+        const startTime = performance.now();
+        const executedOutput = getQueryOutput(jsonData, queryList[selectedQueryId].parsedQuery);
+        setQueryOutput(executedOutput)
+        const endTime = performance.now();
+        const timeTaken = (endTime - startTime).toFixed(2);
+
+        enqueueSnackbar(`Query executed in ${timeTaken} ms`, {
             variant: "success",
         });
+        setIsQueryExecuted(true)
     }
 
     return (
@@ -33,21 +42,21 @@ const QueryEditor = ({selectedQueryId, setQueryOutput}) =>  {
                     </Box>
                     <Box display={'flex'} alignItems={'center'}>
                         <Tooltip title="Run" arrow>
-                            <IconButton onClick={executeQuery}>
-                                <PlayCircleOutlinedIcon color={"primary"} />
+                            <IconButton onClick={executeQuery} disabled={isQueryExecuted}>
+                                <PlayCircleOutlinedIcon color={isQueryExecuted? "disabled" : "primary"} />
                             </IconButton>
                         </Tooltip>
                         <Box ml={1} />
-                        {/*<CSVLink*/}
-                        {/*    data={jsonData}*/}
-                        {/*    filename={"dataOutput.csv"}*/}
-                        {/*>*/}
-                        {/*    <Tooltip title="Export" arrow>*/}
-                        {/*        <IconButton>*/}
-                        {/*            <DownloadOutlinedIcon color={"primary"} />*/}
-                        {/*        </IconButton>*/}
-                        {/*    </Tooltip>*/}
-                        {/*</CSVLink>*/}
+                        <CSVLink
+                            data={queryOutput}
+                            filename={"dataOutput.csv"}
+                        >
+                            <Tooltip title="Export" arrow>
+                                <IconButton>
+                                    <DownloadOutlinedIcon color={"primary"} />
+                                </IconButton>
+                            </Tooltip>
+                        </CSVLink>
 
                     </Box>
                 </Box>

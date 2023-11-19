@@ -1,7 +1,7 @@
 import {Box} from "@mui/material";
 import IntegrationInstructionsOutlinedIcon from '@mui/icons-material/IntegrationInstructionsOutlined';
 import {queryList} from "../../constants/queryList";
-const AvailableQueries = ({selectedQueryId, setSelectedQueryId}) =>  {
+const AvailableQueries = ({selectedQueryId, setSelectedQueryId, setIsQueryExecuted}) =>  {
 
     return (
         <>
@@ -29,7 +29,10 @@ const AvailableQueries = ({selectedQueryId, setSelectedQueryId}) =>  {
                                             color: "#2026d2",
                                         },
                                     }}
-                                    onClick={() => setSelectedQueryId(each.u_id)}
+                                    onClick={() => {
+                                        setSelectedQueryId(each.u_id)
+                                        setIsQueryExecuted(false)
+                                    }}
                                 >
                                     <code>
                                         {each.query}

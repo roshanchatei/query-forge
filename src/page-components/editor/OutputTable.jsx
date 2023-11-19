@@ -50,7 +50,7 @@ const OutputTable = ({tableRef, result, pageSize, currentPage}) =>  {
                         </table>
                     </div>
                 ) : (
-                    <>Select query to see the output</>
+                    <>Run a query to see the output</>
                 )
             }
         </>
