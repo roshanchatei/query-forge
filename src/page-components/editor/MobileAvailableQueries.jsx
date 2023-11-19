@@ -2,6 +2,8 @@ import {useState} from 'react';
 import {Box, Tooltip, IconButton, Dialog, Hidden} from "@mui/material";
 import BookmarksIcon from '@mui/icons-material/Bookmarks';
 import TableSize from "./TableSize";
+import AvailableQueries from "./AvailableQueries";
+import CloseIcon from '@mui/icons-material/Close';
 const MobileAvailableQueries = ({pageSize, setPageSize, setCurrentPage, selectedQueryId, setSelectedQueryId, setIsQueryExecuted}) =>  {
 
     const [open, setOpen] = useState(false);
@@ -11,7 +13,6 @@ const MobileAvailableQueries = ({pageSize, setPageSize, setCurrentPage, selected
     const handleClose = () => {
         setOpen(false);
     };
-
 
     return (
         <>
@@ -30,7 +31,20 @@ const MobileAvailableQueries = ({pageSize, setPageSize, setCurrentPage, selected
                 open={open}
                 onClose={handleClose}
             >
-                hello
+                <Box width={"100%"} position={"relative"}>
+                    <Box position={"absolute"} top={"5px"} right={"5px"}>
+                        <IconButton onClick={handleClose}>
+                            <CloseIcon />
+                        </IconButton>
+                    </Box>
+                    <AvailableQueries
+                        p={0} br={"0"} height={"calc(100vh - 50px)"}
+                        selectedQueryId={selectedQueryId} setOpen={setOpen}
+                        setSelectedQueryId={setSelectedQueryId}
+                        setIsQueryExecuted={setIsQueryExecuted}
+                    />
+                </Box>
+
             </Dialog>
         </>
     );

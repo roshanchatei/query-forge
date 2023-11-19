@@ -25,7 +25,12 @@ const Editor = () =>  {
             <Grid container spacing={0} height={'auto'}>
                 <Hidden mdDown>
                     <Grid item xs={0} md={3}>
-                        <AvailableQueries selectedQueryId={selectedQueryId} setSelectedQueryId={setSelectedQueryId} setIsQueryExecuted={setIsQueryExecuted} />
+                        <AvailableQueries
+                            p={1} br={"12px"} height={"calc(100vh - 130px)"}
+                            selectedQueryId={selectedQueryId}
+                            setSelectedQueryId={setSelectedQueryId}
+                            setIsQueryExecuted={setIsQueryExecuted}
+                        />
                     </Grid>
                 </Hidden>
 

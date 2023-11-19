@@ -19,11 +19,11 @@ const Home = () =>  {
                     backgroundClip: "border-box",
                 }}
             >
-                <Box pl={4} width={"100%"} height={"95%"} sx={{display: "flex", alignItems: "center", justifyContent: "center", flexDirection: "column"}}>
-                    <Box fontSize={"50px"} fontWeight={700} textAlign={"center"}>
+                <Box px={{xs: 2, sm: 4, md: 0}} pl={{md: 4}} width={"100%"} height={"95%"} sx={{display: "flex", alignItems: "center", justifyContent: "center", flexDirection: "column"}}>
+                    <Box fontSize={{xs: "35px", md: "50px"}} fontWeight={700} textAlign={"center"}>
                         Query Forge - Unleash the Power of SQL
                     </Box>
-                    <Box fontSize={"24px"} fontWeight={500} color={"#2026d2"} maxWidth={"700px"} textAlign={"center"} mt={1}>
+                    <Box fontSize={{xs: "18px", md: "24px"}} fontWeight={500} color={"#2026d2"} maxWidth={"700px"} textAlign={"center"} mt={1}>
                         Unleash the Speed, Precision, and Ease of Crafting SQL Queries – A New Era in Database Querying
                     </Box>
                     <Link to={'/editor'} style={{textDecoration: "none"}}>
