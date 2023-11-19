@@ -1,70 +1,45 @@
-# Getting Started with Create React App
+# Atlan Frontend Task: [Query Forge - Unleash the Power of SQL](https://query-forge.vercel.app/)
+<br>
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Introduction
 
-## Available Scripts
+The given application is developed as a task for Atlan.  It gives users the ability to execute SQL queries in an online editor and examine the results of those queries' execution.
 
-In the project directory, you can run:
+Toward the end of this text, there is also a discussion of the Problem Statement in depth.
 
-### `yarn start`
+## Js Framework and Major Packages
+`React`, `Material UI`, `react-csv` and `notistack`.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## Data
+The application utilizes a function, `generateRandomEntry()`, to create a dataset of 250 articles with attributes `id`, `title`, `view`, `category`, `date_published`, and `author_id`.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+While the data is in the form of a JSON object, it is possible to use CSV files for the same purpose by utilizing an existing format conversion library or other logic.
 
-### `yarn test`
+## Page Speed and Optimisation
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+I have analyzed the page load time and its compliance with web standards using Google's Lighthouse tool and Page Speed Insights for all aspects of page optimization. I have cross-checked the same with GTMetrix as well. The Homepage and SQL Editor page load interactively in <strong>0.6 seconds</strong> on a laptop browser.
 
-### `yarn build`
+### 1. Page Load Time
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+I've calculated the page load time that is used here as the duration of time it takes for the website to be interactive, and in every instance that is displayed below, it is far less than Google's recommended time for desktop and mobile devices. As it enables consumers to begin surfing the website, it is, in my opinion, the most significant metric from their point of view.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+In a subsequent section of the article, the detailed screenshots have been supplied together with the corresponding page load timings.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+### 2. Page Load Time Optimization and Other Metrics
 
-### `yarn eject`
+1. The application leverages lazy loading for components to <strong>enhance the initial page load speed</strong>. This means that certain components are loaded only when they are actually needed, reducing the initial payload and allowing for a quicker user interface response.
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+2. The website is made responsive to a great extent even though such an application is not very likely to be used on mobile devices.
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+3. The website is hosted on Vercel, which is regarded as one of the fastest free hosting mechanisms for JavaScript-based Web apps due to its CDN and caching features. It also offers free SSL while hosting, which is often better for page security and ranking.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+4. Recognizing the potential size of query outputs, the application implements a <strong>pagination system</strong>. Instead of loading and rendering the entire dataset at once, the results are divided into manageable chunks. Users can navigate through different pages to view subsets of the data, providing a more efficient and responsive experience.
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+5. To further enhance performance, <strong>memoization and useCallback hooks</strong> are used at suitable places. Memoization is employed to cache the results of expensive calculations or computations, avoiding redundant calculations when the same data is needed again. The useCallback hook is used to memoize callback functions, ensuring that the same instance of the function is returned on subsequent renders, which can help prevent unnecessary re-renders of child components.
 
-## Learn More
+6. Minimal dependencies have been used for the creation of the page.
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+7. Restructured code to reuse components & used minimal imports where necessary.
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+[//]: # (## Features)
 
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `yarn build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
