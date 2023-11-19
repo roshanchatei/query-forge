@@ -1,6 +1,7 @@
 import {Box} from "@mui/material";
-import HomeBg from '../assets/home-bg.svg'
 import {Link} from "react-router-dom";
+
+import HomeBg from '../assets/home-bg.svg'
 
 const Home = () =>  {
 

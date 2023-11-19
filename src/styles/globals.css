@@ -63,7 +63,7 @@ tr:nth-child(odd) {
 @media only screen and (max-width: 900px) {
   .table-container {
     overflow-x: auto;
-    padding-bottom: 100px;
+    padding-bottom: 140px;
   }
 
   table {

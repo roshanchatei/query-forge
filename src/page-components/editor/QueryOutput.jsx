@@ -74,7 +74,7 @@ const QueryOutput = ({pageSize, setPageSize, queryOutput, currentPage, setCurren
                 </Box>
                 <Box
                     px={2.5} pb={1.5} pt={2.5}
-                    height={{xs: "calc(90vh - 230px)", md: "calc(90vh - 190px)"}}
+                    height={{xs: "calc(86vh - 230px)", md: "calc(90vh - 190px)"}}
                     bgcolor={"#f9f9f6"}
                 >
                     <OutputTable tableRef={tableRef} result={queryOutput} currentPage={currentPage} pageSize={pageSize}/>

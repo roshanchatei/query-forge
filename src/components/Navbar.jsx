@@ -1,11 +1,13 @@
 import {AppBar, Box, Avatar, Hidden} from "@mui/material";
+import {Link, useLocation} from "react-router-dom";
+
 import Logo from '../assets/atlan-logo.svg'
 import Profile from '../assets/profile.jpg'
 import { navbarLinks } from '../constants/navbarLinks'
-import {Link, useLocation} from "react-router-dom";
 
 const Navbar = () =>  {
 
+    //getting user's current path for conditional rendering
     const location = useLocation();
 
     return (
@@ -33,7 +35,6 @@ const Navbar = () =>  {
                                             fontSize={'16px'} fontWeight={600}
                                             sx={{
                                                 "&:hover": {
-                                                    // color: "#5e65ff",
                                                     color: "#f05",
                                                 },
                                             }}

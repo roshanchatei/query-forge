@@ -1,3 +1,4 @@
+//sample SQL queries with its parsedQueries
 export const queryList = [
     {
         u_id: 0,

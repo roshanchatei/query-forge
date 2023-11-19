@@ -1,3 +1,4 @@
+//links shown in the navbar
 export const navbarLinks = [
     {
         title: "Home",

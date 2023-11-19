@@ -60,7 +60,7 @@ const QueryEditor = ({queryOutput, selectedQueryId, setQueryOutput, isQueryExecu
 
                     </Box>
                 </Box>
-                <Box px={1.5} py={1.5} height={"10vh"} bgcolor={"#f9f9f6"}>
+                <Box px={1.5} py={1.5} height={{xs: "14vh", md: "10vh"}} bgcolor={"#f9f9f6"}>
                     <TextField
                         value={queryList[selectedQueryId].query}
                         variant="standard"
@@ -79,6 +79,8 @@ const QueryEditor = ({queryOutput, selectedQueryId, setQueryOutput, isQueryExecu
                             borderRadius: "5px"
                         }}
                         aria-label={"query input"}
+                        multiline={window.innerWidth < 900}
+                        rows={window.innerWidth < 900 ? 2 : 1}
                     />
                 </Box>
             </Box>
