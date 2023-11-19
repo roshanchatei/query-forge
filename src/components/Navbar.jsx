@@ -22,26 +22,47 @@ const Navbar = () =>  {
                     <Link to={'/'}>
                         <img src={Logo} alt={'Atlan logo'} height={'35px'} width={'auto'} />
                     </Link>
+
                     <Box display={'flex'} alignItems={'center'}>
-                        {
-                            navbarLinks.map((each, index) => (
-                                <Link to={each.link} key={index} target={each?.target} style={{textDecoration: "none"}}>
-                                    <Box
-                                        ml={3} color={location.pathname === each.link ? "#f05" : "#2026d2"}
-                                        fontSize={'16px'} fontWeight={600}
-                                        sx={{
-                                            "&:hover": {
-                                                // color: "#5e65ff",
-                                                color: "#f05",
-                                            },
-                                        }}
-                                    >
-                                        {each.title}
-                                    </Box>
-                                </Link>
-                            ))
-                        }
-                        <Avatar src={location.pathname === '/' ? '' : Profile} alt={'Profile'} sx={{background: '#2026d2', marginLeft: "80px"}} />
+                        <Hidden mdDown>
+                            {
+                                navbarLinks.map((each, index) => (
+                                    <Link to={each.link} key={index} target={each?.target} style={{textDecoration: "none"}}>
+                                        <Box
+                                            ml={3} color={location.pathname === each.link ? "#f05" : "#2026d2"}
+                                            fontSize={'16px'} fontWeight={600}
+                                            sx={{
+                                                "&:hover": {
+                                                    // color: "#5e65ff",
+                                                    color: "#f05",
+                                                },
+                                            }}
+                                        >
+                                            {each.title}
+                                        </Box>
+                                    </Link>
+                                ))
+                            }
+                            <Avatar src={location.pathname === '/' ? '' : Profile} alt={'Profile'} sx={{background: '#2026d2', marginLeft: "80px"}} />
+                        </Hidden>
+                        <Hidden mdUp>
+                            <Link to={'/'} style={{textDecoration: "none"}}>
+                                <Box
+                                    ml={3} color={location.pathname === '/' ? "#f05" : "#2026d2"}
+                                    fontSize={'16px'} fontWeight={600}
+                                >
+                                    Home
+                                </Box>
+                            </Link>
+                            <Link to={'/editor'} style={{textDecoration: "none"}}>
+                                <Box
+                                    ml={3} color={location.pathname === '/editor' ? "#f05" : "#2026d2"}
+                                    fontSize={'16px'} fontWeight={600}
+                                >
+                                    Editor
+                                </Box>
+                            </Link>
+                        </Hidden>
                     </Box>
                 </Box>
             </AppBar>

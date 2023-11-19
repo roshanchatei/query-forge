@@ -1,14 +1,14 @@
-import {Box, IconButton, Tooltip, Select, MenuItem, FormControl, TextField} from "@mui/material";
+import {Box, IconButton, Hidden} from "@mui/material";
 import TableRowsOutlinedIcon from '@mui/icons-material/TableRowsOutlined';
 import NavigateBeforeIcon from '@mui/icons-material/NavigateBefore';
 import NavigateNextIcon from '@mui/icons-material/NavigateNext';
 import OutputTable from "./OutputTable";
-import {useState, useRef} from "react";
+import {useRef} from "react";
+import TableSize from "./TableSize";
 
-const QueryOutput = ({queryOutput, currentPage, setCurrentPage}) =>  {
+const QueryOutput = ({pageSize, setPageSize, queryOutput, currentPage, setCurrentPage}) =>  {
 
     const tableRef = useRef(null);
-    const [pageSize, setPageSize] = useState(10);
 
     const scrollToTop = () => {
         if(pageSize === 10)
@@ -55,36 +55,10 @@ const QueryOutput = ({queryOutput, currentPage, setCurrentPage}) =>  {
                     {
                         queryOutput.length > 0 && (
                             <Box display={'flex'} alignItems={'center'}>
-                                <Box>
-                                    Table Size:
-                                </Box>
-                                <TextField
-                                    size={"small"}
-                                    color={"primary"}
-                                    value={pageSize}
-                                    onChange={handlePageSizeChange}
-                                    variant="standard"
-                                    InputProps={{
-                                        disableUnderline: true,
-                                        style: {
-                                            color: "#2026d2"
-                                        },
-                                    }}
-                                    sx={{
-                                        padding: "2px 5px",
-                                        borderRadius: "5px",
-                                        backgroundColor: "transparent",
-                                        mt: 0.5,
-                                        mr: 4
-                                    }}
-                                    select
-                                    aria-label={"table size"}
-                                >
-                                    <MenuItem value={10}>10</MenuItem>
-                                    <MenuItem value={20}>20</MenuItem>
-                                    <MenuItem value={50}>50</MenuItem>
-                                </TextField>
-
+                                <Hidden mdDown>
+                                    <TableSize pageSize={pageSize} setPageSize={setPageSize} setCurrentPage={setCurrentPage} />
+                                    <Box ml={4} />
+                                </Hidden>
                                 <IconButton onClick={handlePrevPage} disabled={currentPage === 1}>
                                     <NavigateBeforeIcon color={currentPage === 1 ? "disabled" : "primary"} />
                                 </IconButton>
@@ -98,7 +72,11 @@ const QueryOutput = ({queryOutput, currentPage, setCurrentPage}) =>  {
                         )
                     }
                 </Box>
-                <Box px={2.5} pb={1.5} pt={2.5} height={"calc(90vh - 190px)"} bgcolor={"#f9f9f6"}>
+                <Box
+                    px={2.5} pb={1.5} pt={2.5}
+                    height={{xs: "calc(90vh - 230px)", md: "calc(90vh - 190px)"}}
+                    bgcolor={"#f9f9f6"}
+                >
                     <OutputTable tableRef={tableRef} result={queryOutput} currentPage={currentPage} pageSize={pageSize}/>
                 </Box>
             </Box>

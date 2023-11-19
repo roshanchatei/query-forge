@@ -60,3 +60,20 @@ tr:nth-child(odd) {
   background: #555;
 }
 
+@media only screen and (max-width: 900px) {
+  .table-container {
+    overflow-x: auto;
+    padding-bottom: 90px;
+  }
+
+  table {
+    width: auto;
+  }
+
+  th, td {
+    white-space: nowrap;
+  }
+}
+
+
+
