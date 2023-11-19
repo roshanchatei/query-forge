@@ -1,4 +1,3 @@
-import { useState } from 'react';
 const OutputTable = ({tableRef, result, pageSize, currentPage}) =>  {
 
     const getTableRowsFromData = (arr) => {
