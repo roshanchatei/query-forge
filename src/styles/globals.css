@@ -9,11 +9,12 @@ body {
 }
 
 .query-container{
+  height: 100%;
   overflow-y: auto;
 }
 
 .table-container {
-  max-height: 445px;
+  max-height: 100%;
   overflow-y: auto;
 }
 
@@ -71,7 +72,7 @@ tr:nth-child(odd) {
 @media only screen and (max-width: 900px) {
   .table-container {
     overflow-x: auto;
-    padding-bottom: 140px;
+    /*padding-bottom: 140px;*/
   }
 
   table {

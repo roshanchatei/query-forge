@@ -47,17 +47,20 @@ const QueryEditor = ({queryOutput, selectedQueryId, setQueryOutput, isQueryExecu
                             </IconButton>
                         </Tooltip>
                         <Box ml={1} />
-                        <CSVLink
-                            data={queryOutput}
-                            filename={"dataOutput.csv"}
-                        >
-                            <Tooltip title="Export" arrow>
-                                <IconButton>
-                                    <DownloadOutlinedIcon color={"primary"} />
-                                </IconButton>
-                            </Tooltip>
-                        </CSVLink>
-
+                        {
+                            queryOutput.length > 0 && (
+                                <CSVLink
+                                    data={queryOutput}
+                                    filename={"dataOutput.csv"}
+                                >
+                                    <Tooltip title="Export" arrow>
+                                        <IconButton>
+                                            <DownloadOutlinedIcon color={"primary"} />
+                                        </IconButton>
+                                    </Tooltip>
+                                </CSVLink>
+                            )
+                        }
                     </Box>
                 </Box>
                 <Box px={1.5} py={1.5} height={'12.5vh'} bgcolor={"#f9f9f6"}>
@@ -79,8 +82,6 @@ const QueryEditor = ({queryOutput, selectedQueryId, setQueryOutput, isQueryExecu
                             borderRadius: "5px"
                         }}
                         aria-label={"query input"}
-                        // multiline={window.innerWidth < 900}
-                        // rows={window.innerWidth < 900 ? 2 : 1}
                         multiline
                         rows={2}
                     />

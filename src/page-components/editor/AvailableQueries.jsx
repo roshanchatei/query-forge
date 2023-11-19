@@ -15,32 +15,34 @@ const AvailableQueries = ({p, br, height, setOpen, selectedQueryId, setSelectedQ
                             </Box>
                         </Box>
                     </Box>
-                    <Box px={2.5} py={1.5} height={height} bgcolor={"#f9f9f6"} className="query-container">
-                        {
-                            queryList.map((each, index) => (
-                                <Box
-                                    key={index}
-                                    width={"100%"} mb={2}
-                                    bgcolor={"#FFF"} py={0.5} pl={1}
-                                    borderRadius={"3px"} color={each.u_id === selectedQueryId ? "#2026d2" : ""}
-                                    sx={{
-                                        cursor: "pointer",
-                                        "&:hover": {
-                                            color: "#2026d2",
-                                        },
-                                    }}
-                                    onClick={() => {
-                                        setSelectedQueryId(each.u_id)
-                                        setIsQueryExecuted(false)
-                                        if(setOpen) setOpen(false)
-                                    }}
-                                >
-                                    <code>
-                                        {each.query}
-                                    </code>
-                                </Box>
-                            ))
-                        }
+                    <Box px={2} py={1.5} height={height} bgcolor={"#f9f9f6"}>
+                        <Box className="query-container">
+                            {
+                                queryList.map((each, index) => (
+                                    <Box
+                                        key={index}
+                                        width={"100%"} mb={2}
+                                        bgcolor={"#FFF"} py={0.5} pl={1}
+                                        borderRadius={"3px"} color={each.u_id === selectedQueryId ? "#2026d2" : ""}
+                                        sx={{
+                                            cursor: "pointer",
+                                            "&:hover": {
+                                                color: "#2026d2",
+                                            },
+                                        }}
+                                        onClick={() => {
+                                            setSelectedQueryId(each.u_id)
+                                            setIsQueryExecuted(false)
+                                            if(setOpen) setOpen(false)
+                                        }}
+                                    >
+                                        <code>
+                                            {each.query}
+                                        </code>
+                                    </Box>
+                                ))
+                            }
+                        </Box>
                     </Box>
                 </Box>
             </Box>
