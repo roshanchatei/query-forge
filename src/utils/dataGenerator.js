@@ -10,14 +10,18 @@ const generateRandomCategory = () => {
     return categories[randomIndex];
 };
 
-const generateRandomEntry = (id) => ({
-    id: id,
-    title: `Article ${id}`,
-    category: generateRandomCategory(),
-    views: Math.floor(Math.random() * 20000) + 1000,
-    date_published: generateRandomDate().toISOString().split('T')[0],
-    author_id: Math.floor(Math.random() * 100) + 1,
-});
+const generateRandomEntry = (id) => {
+    const authorId96Count = Math.min(Math.floor(Math.random() * 7) + 1, 7);
+
+    return {
+        id: id,
+        title: `Article ${id}`,
+        category: generateRandomCategory(),
+        views: Math.floor(Math.random() * 20000) + 1000,
+        date_published: generateRandomDate().toISOString().split('T')[0],
+        author_id: (id <= authorId96Count) ? 96 : Math.floor(Math.random() * 100) + 1,
+    };
+};
 
 export const jsonData = Array.from({ length: 250 }, (_, index) => generateRandomEntry(index + 1));
 

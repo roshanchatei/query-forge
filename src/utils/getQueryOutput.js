@@ -21,10 +21,14 @@ export const getQueryOutput = (data, query) => {
                     const operator = Object.keys(condition)[0];
                     const value = condition[operator];
                     switch (operator) {
+                        case '=':
+                            return entry[field] === value;
                         case '>':
                             return entry[field] > value;
                         case '<':
                             return entry[field] < value;
+                        case 'BETWEEN':
+                            return entry[field] > value[0] && entry[field] < value[1];
                         default:
                             return true;
                     }

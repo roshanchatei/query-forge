@@ -22,12 +22,6 @@ const QueryOutput = ({pageSize, setPageSize, queryOutput, currentPage, setCurren
         }
     };
 
-    const handlePageSizeChange = (e) => {
-        const newSize = parseInt(e.target.value, 10);
-        setPageSize(newSize);
-        setCurrentPage(1);
-    };
-
     const handlePrevPage = () => {
         setCurrentPage((prevPage) => Math.max(prevPage - 1, 1));
         scrollToTop()
@@ -74,7 +68,7 @@ const QueryOutput = ({pageSize, setPageSize, queryOutput, currentPage, setCurren
                 </Box>
                 <Box
                     px={2.5} pb={1.5} pt={2.5}
-                    height={{xs: "calc(86vh - 230px)", md: "calc(90vh - 190px)"}}
+                    height={"calc(86vh - 179px)"}
                     bgcolor={"#f9f9f6"}
                 >
                     <OutputTable tableRef={tableRef} result={queryOutput} currentPage={currentPage} pageSize={pageSize}/>

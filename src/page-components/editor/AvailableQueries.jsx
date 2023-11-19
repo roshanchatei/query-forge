@@ -15,7 +15,7 @@ const AvailableQueries = ({p, br, height, setOpen, selectedQueryId, setSelectedQ
                             </Box>
                         </Box>
                     </Box>
-                    <Box px={2.5} py={1.5} height={height} bgcolor={"#f9f9f6"}>
+                    <Box px={2.5} py={1.5} height={height} bgcolor={"#f9f9f6"} className="query-container">
                         {
                             queryList.map((each, index) => (
                                 <Box
