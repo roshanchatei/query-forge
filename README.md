@@ -1,5 +1,4 @@
 # Atlan Frontend Task: [Query Forge - Unleash the Power of SQL](https://query-forge.vercel.app/)
-<br>
 
 ## Introduction
 
@@ -43,7 +42,7 @@ In a subsequent section of the article, the detailed screenshots have been suppl
 
 ### 1. Available Queries
 
-The application provides users with a diverse set of <strong>17 predefined queries</strong>, each carefully designed to showcase various aspects of SQL functionality. These queries range from simple to complex, allowing users to explore, understand the capabilities of the application and get required results from the data.
+The application provides users with a diverse set of <strong>17 predefined queries</strong>, each carefully designed to showcase various aspects of SQL functionality. These queries range from simple to complex, allowing users to explore, and understand the capabilities of the application and get the required results from the data.
 
 ### 2. Execution of Queries
 
@@ -59,7 +58,11 @@ The heart of the SQL Query Web Application lies in the efficient execution of SQ
 
 - The application's predefined queries follow a logical progression of complexity. Users can witness the gradual introduction of advanced SQL features, enabling a learning-oriented experience.
 
-This detailed execution process ensures that the SQL Query Web Application delivers accurate and efficient results, making it a powerful tool for exploring SQL queries on diverse datasets.
+- This detailed execution process ensures that the SQL Query Web Application delivers accurate and efficient results, making it a powerful tool for exploring SQL queries on diverse datasets.
+
+### 3. Export to CSV
+
+Users can export the query results data to a <strong>CSV file</strong> using the Export button. The exported CSV file contains the data displayed in the query results table.
 
 ## Page Load Time Measurement (Lighthouse Report)
 
@@ -80,7 +83,7 @@ This detailed execution process ensures that the SQL Query Web Application deliv
 
 ## Problem Statement
 
-Create, design and implement a web-based application capable of running SQL queries and displaying the results of said query. The application must include a space which accepts SQL queries in the form of user inputs, then runs the given query, and displays the result within the application.
+Create, design and implement a web-based application capable of running SQL queries and displaying the results of the query. The application must include a space which accepts SQL queries, then runs the given query, and displays the result within the application.
 
 ## 👨‍💻 Contributor
 
