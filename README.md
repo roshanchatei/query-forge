@@ -5,8 +5,6 @@
 
 The given application is developed as a task for Atlan. It gives users the ability to execute SQL queries in an online editor and examine the results of those queries' execution.
 
-Toward the end of this text, there is also a discussion of the Problem Statement in depth.
-
 ## Js Framework and Major Packages
 `React`, `Material UI`, `react-csv` and `notistack`.
 
@@ -66,15 +64,19 @@ This detailed execution process ensures that the SQL Query Web Application deliv
 ## Page Load Time Measurement (Lighthouse Report)
 
 ### Home page
-<img width="100%" alt="Lighthouse Screenshot Home Screen" src="https://github.com/roshanchatei/query-forge/assets/83601217/ff115e07-306a-449e-8792-aa04ebeff29b">
+
+<img width="100%" alt="Lighthouse Screenshot Editor Screen" src="https://github.com/roshanchatei/query-forge/assets/83601217/0fe5f57e-9d2b-48d7-bf15-72506c6d2dd4">
 
 ### Editor page
-<img width="100%" alt="Lighthouse Screenshot Editor Screen" src="https://github.com/roshanchatei/query-forge/assets/83601217/0fe5f57e-9d2b-48d7-bf15-72506c6d2dd4">
+
+<img width="100%" alt="Lighthouse Screenshot Home Screen" src="https://github.com/roshanchatei/query-forge/assets/83601217/ff115e07-306a-449e-8792-aa04ebeff29b">
 
 ## Screenshots
 
 <img width="100%" alt="Lighthouse Screenshot Editor Screen" src="https://github.com/roshanchatei/query-forge/assets/83601217/1b7d9c47-3795-43c6-b9cc-46d8a1fc4bdf">
 <img width="100%" alt="Lighthouse Screenshot Editor Screen" src="https://github.com/roshanchatei/query-forge/assets/83601217/670835f6-f4ea-4f40-9a4b-cb362c1f88ff">
+
+<br>
 
 ## Problem Statement
 
