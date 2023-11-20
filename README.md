@@ -3,7 +3,7 @@
 
 ## Introduction
 
-The given application is developed as a task for Atlan.  It gives users the ability to execute SQL queries in an online editor and examine the results of those queries' execution.
+The given application is developed as a task for Atlan. It gives users the ability to execute SQL queries in an online editor and examine the results of those queries' execution.
 
 Toward the end of this text, there is also a discussion of the Problem Statement in depth.
 
@@ -41,5 +41,56 @@ In a subsequent section of the article, the detailed screenshots have been suppl
 
 7. Restructured code to reuse components & used minimal imports where necessary.
 
-[//]: # (## Features)
+## Features
+
+### 1. Available Queries
+
+The application provides users with a diverse set of <strong>17 predefined queries</strong>, each carefully designed to showcase various aspects of SQL functionality. These queries range from simple to complex, allowing users to explore, understand the capabilities of the application and get required results from the data.
+
+### 2. Execution of Queries
+
+The heart of the SQL Query Web Application lies in the efficient execution of SQL queries on the provided dataset. The `getQueryOutput()` processes and filters data based on a given query object.
+
+#### Handling Multiple Queries
+
+- The `getQueryOutput()` is designed to seamlessly handle multiple queries. Users can sequentially execute different queries, and each execution operates on the original dataset, ensuring that the query and data are always in sync. This approach provides consistent and reliable results, regardless of the order of execution.
+
+- Users can experiment with the 17 predefined queries, which are strategically ordered from simple to complex.
+
+#### Complexity Gradation
+
+- The application's predefined queries follow a logical progression of complexity. Users can witness the gradual introduction of advanced SQL features, enabling a learning-oriented experience.
+
+This detailed execution process ensures that the SQL Query Web Application delivers accurate and efficient results, making it a powerful tool for exploring SQL queries on diverse datasets.
+
+## Page Load Time Measurement (Lighthouse Report)
+
+### Home page
+<img width="100%" alt="Lighthouse Screenshot Home Screen" src="https://github.com/roshanchatei/query-forge/assets/83601217/ff115e07-306a-449e-8792-aa04ebeff29b">
+
+### Editor page
+<img width="100%" alt="Lighthouse Screenshot Editor Screen" src="https://github.com/roshanchatei/query-forge/assets/83601217/0fe5f57e-9d2b-48d7-bf15-72506c6d2dd4">
+
+## Screenshots
+
+<img width="100%" alt="Lighthouse Screenshot Editor Screen" src="https://github.com/roshanchatei/query-forge/assets/83601217/1b7d9c47-3795-43c6-b9cc-46d8a1fc4bdf">
+<img width="100%" alt="Lighthouse Screenshot Editor Screen" src="https://github.com/roshanchatei/query-forge/assets/83601217/670835f6-f4ea-4f40-9a4b-cb362c1f88ff">
+
+## Problem Statement
+
+Create, design and implement a web-based application capable of running SQL queries and displaying the results of said query. The application must include a space which accepts SQL queries in the form of user inputs, then runs the given query, and displays the result within the application.
+
+## 👨‍💻 Contributor
+
+<table>
+  <tr>
+    <td align="center"><a href="https://github.com/roshanchatei"><img src="https://avatars.githubusercontent.com/u/83601217?v=4" width="70px;" alt="" style="border-radius:50%"/><br /><sub><b>Roshan Chatei</b></sub></a><br /></td>  
+  </tr>
+</table>
+
+
+
+
+
+
 
